@@ -1,32 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.iszumi.movielover.activity.DetailActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="2"
         android:padding="@dimen/detail_view_group_padding">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical|left"
+            android:text="@string/original_title"
+            android:textColor="@color/text"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/white" />
 
         <!--original title-->
         <TextView
             android:id="@+id/tv_original_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:padding="@dimen/detail_content_padding"
-            tools:text="Slumdog Millionaire"/>
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/medium_padding"
+            android:paddingRight="@dimen/medium_padding"
+            android:textColor="@color/text"
+            android:textSize="14sp"
+            tools:ignore="RtlHardcoded" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:padding="@dimen/detail_view_group_padding">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical|left"
+            android:text="@string/release_date"
+            android:textColor="@color/text"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/white" />
+
+        <!--release date-->
+        <TextView
+            android:id="@+id/tv_release_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/medium_padding"
+            android:paddingRight="@dimen/medium_padding"
+            android:textColor="@color/text"
+            android:textSize="14sp"
+            tools:ignore="RtlHardcoded" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:padding="@dimen/detail_view_group_padding">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical|left"
+            android:text="@string/rating"
+            android:textColor="@color/text"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/white" />
+
+        <!--user rating (called vote_average in the api)-->
+        <TextView
+            android:id="@+id/tv_rating"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/medium_padding"
+            android:paddingRight="@dimen/medium_padding"
+            android:textColor="@color/text"
+            android:textSize="14sp"
+            tools:ignore="RtlHardcoded"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:padding="@dimen/detail_view_group_padding">
 
         <!--movie poster image thumbnail-->
         <ImageView
             android:id="@+id/iv_poster_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/detail_content_padding"
-            tools:src="@drawable/poster"/>
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/medium_padding"
+            android:paddingRight="@dimen/medium_padding"
+            android:textColor="@color/text"
+            android:textSize="14sp"
+            tools:ignore="RtlHardcoded"/>
 
         <!--a plot synopsis (called overview in the api)-->
         <TextView
@@ -34,28 +151,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/detail_content_padding"
-            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer hendrerit ultricies magna, eu tempus leo molestie quis. Nulla suscipit sodales sem in convallis. Curabitur dictum lectus sem, quis dictum nisi pellentesque id. Cras scelerisque mi ultricies ligula rhoncus lacinia. Vivamus egestas tellus eros, nec condimentum enim ornare non. Donec mattis sem et placerat condimentum. Integer accumsan molestie velit, in pellentesque nisl luctus eget. Nulla facilisi. Proin feugiat dui enim, sed eleifend metus viverra vel. Proin vestibulum dolor ac placerat eleifend. In hac habitasse platea dictumst. Pellentesque placerat fringilla ante quis dapibus. Duis lobortis pellentesque quam quis dignissim. Vestibulum cursus, ligula ut bibendum eleifend, odio augue iaculis urna, eu ornare odio est ut risus. Ut sollicitudin non tortor id pulvinar. Curabitur rhoncus libero sed dolor varius, quis sodales risus venenatis."/>
-
-        <!--user rating (called vote_average in the api)-->
-        <TextView
-            android:id="@+id/tv_rating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/detail_content_padding"
-            tools:text="2.57/10.00"/>
-
-        <!--release date-->
-        <TextView
-            android:id="@+id/tv_release_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/detail_content_padding"
-            tools:text="15 August 2017"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/black"/>
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>
+    </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_video_container"
@@ -68,10 +165,35 @@
             android:layout_height="1dp"
             android:background="@android:color/black"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/detail_view_group_padding">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical|left"
+            android:text="@string/review"
+            android:textColor="@color/text"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
         <LinearLayout
             android:id="@+id/ll_review_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"/>
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+
+</LinearLayout>
+
