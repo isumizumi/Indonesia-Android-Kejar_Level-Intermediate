@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements Callback<MovieRes
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE_UPDATE_RECYCLER_VIEW) {
             loadFavoriteMoviesFromDb();
-            CustomToast.show(this, data.getStringExtra("Hallo"));
+            CustomToast.show(this, data.getStringExtra("Ok!"));
         }
     }
 
@@ -92,6 +93,9 @@ public class MainActivity extends AppCompatActivity implements Callback<MovieRes
                 return true;
             case R.id.action_favorite:
                 loadFavoriteMoviesFromDb();
+                return true;
+            case R.id.action_about:
+                Toast.makeText(getApplicationContext(), "About", Toast.LENGTH_SHORT).show();
                 return true;
         }
 
