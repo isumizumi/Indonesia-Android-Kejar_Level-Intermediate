@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements Callback<MovieRes
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE_UPDATE_RECYCLER_VIEW) {
             loadFavoriteMoviesFromDb();
-            CustomToast.show(this, data.getStringExtra("Ok!"));
+            CustomToast.show(this, data.getStringExtra("halo"));
         }
     }
 

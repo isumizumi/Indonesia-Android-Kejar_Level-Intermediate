@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="@color/colorPrimaryDark"
         tools:context="com.iszumi.movielover.activity.DetailActivity">
 
         <LinearLayout
@@ -199,11 +200,16 @@
 
         <LinearLayout
             android:id="@+id/ll_review_container"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="@dimen/detail_content_padding"
-            tools:ignore="RtlHardcoded"/>
+            android:orientation="vertical"
+            android:textColor="@color/text"
+            android:padding="@dimen/detail_content_padding"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/black"/>
 
         <LinearLayout
             android:id="@+id/ll_video_container"
@@ -211,12 +217,6 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="vertical"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/white"/>
-
     </LinearLayout>
 
 </ScrollView>

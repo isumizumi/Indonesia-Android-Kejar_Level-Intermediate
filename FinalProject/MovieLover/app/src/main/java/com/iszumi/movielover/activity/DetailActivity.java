@@ -116,7 +116,7 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Intent resultIntent = new Intent();
-        resultIntent.putExtra("Hallo", "Success unlike this movie!");
+        resultIntent.putExtra("halo", "Success Unfavorite!");
         if (mFavoriteMovieClicked) {
             setResult(RESULT_OK, resultIntent);
         }
