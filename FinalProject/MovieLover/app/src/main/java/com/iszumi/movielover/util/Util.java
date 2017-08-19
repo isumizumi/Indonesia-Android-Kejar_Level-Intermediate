@@ -1,5 +1,6 @@
 package com.iszumi.movielover.util;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Context;
@@ -12,6 +13,10 @@ import android.support.v4.content.ContextCompat;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+
+import com.iszumi.movielover.BuildConfig;
+
+import com.google.gson.Gson;
 
 /**
  * Thanks to my sensei: @hendrawd

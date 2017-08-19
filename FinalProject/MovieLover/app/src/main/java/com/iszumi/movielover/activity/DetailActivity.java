@@ -250,7 +250,13 @@ public class DetailActivity extends AppCompatActivity {
                 if (videoResponse != null) {
                     List<Video> videoList = videoResponse.getResults();
                     for (Video video : videoList) {
-                        Log.d(TAG, video.getName());
+                        View videoRow = Generator.getVideo(
+                                DetailActivity.this,
+                                video.getName(),
+                                video.getType()
+                        );
+                        llReviewContainer.addView(videoRow);
+//                        Log.d(TAG, video.getName());
                     }
                 }
             }

@@ -5,6 +5,7 @@
     <color name="colorPrimaryLight">#D1C4E9</color>
     <color name="colorAccent">#E040FB</color>
     <color name="text">#FFFFFF</color>
+    <color name="white_selector">#a7a9ac</color>
     <color name="secondaryText">#000000</color>
 
 
