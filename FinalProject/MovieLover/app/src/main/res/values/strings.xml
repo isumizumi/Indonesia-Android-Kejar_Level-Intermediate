@@ -34,7 +34,7 @@
     <string name="category_popular">Popular</string>
     <string name="category_top_rated">Top Rated</string>
     <string name="category_upcoming">Upcoming</string>
-    <string name="review">Review</string>
+    <string name="trailerreview">Review and Related Videos</string>
     <string name="review_author">Author: %s</string>
     <string name="show_favorites">Show Favorites</string>
     <string name="unfavorite">Unfavorite</string>

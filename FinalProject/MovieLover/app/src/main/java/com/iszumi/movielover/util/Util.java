@@ -16,6 +16,7 @@ import android.view.inputmethod.InputMethodManager;
 
 import com.iszumi.movielover.BuildConfig;
 
+import com.google.android.youtube.player.YouTubeStandalonePlayer;
 import com.google.gson.Gson;
 
 /**
@@ -98,6 +99,14 @@ public class Util {
         if (view != null) {
             InputMethodManager imm = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+
+    public static void playYoutubeVideo(Activity context, String videoId) {
+        if (Util.isPackageInstalled("com.google.android.youtube", context.getPackageManager())) {
+            // if have youtube application
+            Intent intent = YouTubeStandalonePlayer.createVideoIntent(context, BuildConfig.THE_MOVIE_DB_API, videoId);
+            context.startActivity(intent);
         }
     }
 
