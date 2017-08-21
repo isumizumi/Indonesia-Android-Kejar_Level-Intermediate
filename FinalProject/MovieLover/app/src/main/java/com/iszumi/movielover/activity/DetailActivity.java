@@ -253,7 +253,8 @@ public class DetailActivity extends AppCompatActivity {
                         View videoRow = Generator.getVideo(
                                 DetailActivity.this,
                                 video.getName(),
-                                video.getType()
+                                video.getType(),
+                                video.getKey()
                         );
                         llReviewContainer.addView(videoRow);
 //                        Log.d(TAG, video.getName());

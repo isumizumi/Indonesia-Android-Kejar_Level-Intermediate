@@ -6,6 +6,8 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.iszumi.movielover.R;
@@ -37,22 +39,29 @@ public class Generator {
         return view;
     }
 
-    public static View getVideo(Context context, String name, String type) {
+    public static View getVideo(final Activity context, String name, String type, final String videoKey) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View row = inflater.inflate(R.layout.row_video, null);
-        AutoFitImageView ivThumbnail = (AutoFitImageView) row.findViewById(R.id.iv_thumbnail);
+        ImageView ivThumbnail = (ImageView) row.findViewById(R.id.iv_thumbnail);
 
         //load image glide
-//        String videoKey = video.getKey();
-//        if (TextUtils.isEmpty(videoKey)) {
-//            ivThumbnail.setImageResource(R.drawable.error_landscape);
-//        } else {
-//            RequestOptions options = new RequestOptions().error(R.drawable.error_landscape);
-//            Glide.with(ivThumbnail.getContext())
-//                    .load(UrlComposer.getYoutubeThumbnail(video.getKey()))
-//                    .apply(options)
-//                    .into(ivThumbnail);
-//        }
+        if (TextUtils.isEmpty(videoKey)) {
+            ivThumbnail.setImageResource(R.drawable.error_landscape);
+        } else {
+            RequestOptions options = new RequestOptions().error(R.drawable.error_landscape);
+            Glide.with(ivThumbnail.getContext())
+                    .load(UrlComposer.getYoutubeThumbnail(videoKey))
+                    .apply(options)
+                    .into(ivThumbnail);
+        }
+
+        //set click action
+        row.findViewById(R.id.main_content).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Util.playYoutubeVideo(context, videoKey);
+            }
+        });
 
         TextView tvName = (TextView) row.findViewById(R.id.tv_name);
         tvName.setText(name);

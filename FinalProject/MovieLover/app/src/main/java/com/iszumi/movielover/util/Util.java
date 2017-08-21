@@ -62,19 +62,6 @@ public class Util {
         }
     }
 
-    public static void openUrl(Context ctx, String url) {
-        try {
-            if (!url.startsWith("http://") && !url.startsWith("https://")) {
-                url = "http://" + url;
-            }
-
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-            ctx.startActivity(browserIntent);
-        } catch (Exception e) {
-            CustomToast.show(ctx, "Can't open url!");
-        }
-    }
-
     /**
      * Convert dp unit to equivalent pixels, depending on device density.
      *
@@ -102,11 +89,29 @@ public class Util {
         }
     }
 
+    public static void openUrl(Context ctx, String url) {
+        try {
+            if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                url = "http://" + url;
+            }
+
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            ctx.startActivity(browserIntent);
+        } catch (Exception e) {
+            CustomToast.show(ctx, "Can't open url!");
+        }
+    }
+
+
     public static void playYoutubeVideo(Activity context, String videoId) {
         if (Util.isPackageInstalled("com.google.android.youtube", context.getPackageManager())) {
             // if have youtube application
             Intent intent = YouTubeStandalonePlayer.createVideoIntent(context, BuildConfig.THE_MOVIE_DB_API, videoId);
             context.startActivity(intent);
+        }else {
+            // if don't have youtube application
+            String youtubeUrl = "https://www.youtube.com/watch?v=" + videoId;
+            Util.openUrl(context, youtubeUrl);
         }
     }
 
