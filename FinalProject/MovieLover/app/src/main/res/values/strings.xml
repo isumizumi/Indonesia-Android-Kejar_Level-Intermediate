@@ -4,6 +4,7 @@
     <string name="top_rated">Top Rated</string>
     <string name="popular">Popular</string>
     <string name="favorite">Favorite</string>
+    <string name="about">About</string>
 
     <string name="category_api_popular" translatable="false">popular</string>
     <string name="category_api_top_rated" translatable="false">top_rated</string>
@@ -24,7 +25,6 @@
     <string name="no_data_found">No data found!</string>
     <string name="no_favorite_movies">No favorite movies!</string>
     <string name="loading">Loading…</string>
-    <string name="about">About</string>
     <string name="no_information">No information</string>
     <string name="no_new_movies">No new movies in %s category</string>
     <string name="no_internet_connection">No internet connection!</string>

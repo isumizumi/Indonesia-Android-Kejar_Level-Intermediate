@@ -96,6 +96,9 @@ public class MainActivity extends AppCompatActivity implements Callback<MovieRes
                 return true;
             case R.id.action_about:
                 Toast.makeText(getApplicationContext(), "About", Toast.LENGTH_SHORT).show();
+                Intent k = new Intent(MainActivity.this, About.class); //explicit intent
+                k.putExtra("Value3", "About");
+                startActivity(k);
                 return true;
         }
 

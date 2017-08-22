@@ -12,18 +12,26 @@
         android:roundIcon="@mipmap/movielover"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!-- Splash screen -->
         <activity
-            android:name=".activity.MainActivity"
-            android:launchMode="singleTop">
+            android:name="com.iszumi.movielover.Splashscreen"
+            android:label="@string/app_name"
+            android:theme="@style/Splashscreen"
+            android:screenOrientation="portrait"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
+            android:name=".activity.MainActivity"
+            android:launchMode="singleTop"/>
+        <activity
             android:name=".activity.DetailActivity"
-            android:parentActivityName=".activity.MainActivity">
-        </activity>
+            android:parentActivityName=".activity.MainActivity" />
+        <activity android:name=".activity.About" />
     </application>
 
 </manifest>
