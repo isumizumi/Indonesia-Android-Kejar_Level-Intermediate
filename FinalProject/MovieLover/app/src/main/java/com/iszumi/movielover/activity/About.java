@@ -21,7 +21,7 @@ public class About extends AppCompatActivity {
         intentUrlBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "http://www.isumizumi.github.io";
+                String url = "https://isumizumi.github.io";
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 startActivity(i);

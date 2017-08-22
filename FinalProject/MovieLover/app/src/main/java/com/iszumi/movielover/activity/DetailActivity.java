@@ -1,20 +1,25 @@
 package com.iszumi.movielover.activity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
+import android.support.v4.app.ShareCompat;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.iszumi.movielover.util.CustomToast;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -43,7 +48,7 @@ import retrofit2.Response;
 
 public class DetailActivity extends AppCompatActivity {
 
-    private static final String TAG = "DetailActivity";
+//    private static final String TAG = "DetailActivity";
     public static final String MOVIE_KEY = "movie";
 
     private Call<VideoResponse> mRequestVideoCall;
@@ -51,6 +56,7 @@ public class DetailActivity extends AppCompatActivity {
     private MenuItem mMenuItemFavorite;
     private boolean mIsFavoriteMovie;
     private boolean mFavoriteMovieClicked;
+    private String mFirstVideoKey;
 
     @BindView(R.id.tv_original_title)
     TextView tvOriginalTitle;
@@ -72,6 +78,11 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         ButterKnife.bind(this);
+
+        // workaround for shared element transition stuck
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            postponeEnterTransition();
+        }
 
         setupBackButton();
 
@@ -152,6 +163,23 @@ public class DetailActivity extends AppCompatActivity {
                 // kembali ke parent Activity
                 // NavUtils.navigateUpFromSameTask(this);
                 onBackPressed();
+                return true;
+            }
+            case R.id.action_share: {
+                if (mRequestVideoCall != null) {
+                    ShareCompat.IntentBuilder shareIntentBuilder = ShareCompat.IntentBuilder.from(DetailActivity.this);
+                    shareIntentBuilder
+                            .setType("text/plain")
+                            .setText(
+                                    getString(
+                                            R.string.share_first_trailer,
+                                            "https://www.youtube.com/watch?v=" + mFirstVideoKey
+                                    )
+                            );
+                    startActivity(shareIntentBuilder.getIntent());
+                } else {
+                    CustomToast.show(this, getString(R.string.no_trailer));
+                }
                 return true;
             }
             case R.id.action_favorite: {
@@ -249,7 +277,12 @@ public class DetailActivity extends AppCompatActivity {
                 VideoResponse videoResponse = response.body();
                 if (videoResponse != null) {
                     List<Video> videoList = videoResponse.getResults();
-                    for (Video video : videoList) {
+                    for (int i = 0; i < videoList.size(); i++) {
+                        Video video = videoList.get(i);
+                        if(i == 0){
+                            //assign first video key to member variable
+                            mFirstVideoKey = video.getKey();
+                        }
                         View videoRow = Generator.getVideo(
                                 DetailActivity.this,
                                 video.getName(),
@@ -257,7 +290,6 @@ public class DetailActivity extends AppCompatActivity {
                                 video.getKey()
                         );
                         llReviewContainer.addView(videoRow);
-//                        Log.d(TAG, video.getName());
                     }
                 }
             }

@@ -86,12 +86,15 @@ public class MainActivity extends AppCompatActivity implements Callback<MovieRes
 
         switch (itemId) {
             case R.id.action_popular:
+                Toast.makeText(getApplicationContext(), "Popular Movies", Toast.LENGTH_SHORT).show();
                 requestMovieList(getString(R.string.category_api_popular));
                 return true;
             case R.id.action_top_rated:
+                Toast.makeText(getApplicationContext(), "Top Rated Movies", Toast.LENGTH_SHORT).show();
                 requestMovieList(getString(R.string.category_api_top_rated));
                 return true;
             case R.id.action_favorite:
+                Toast.makeText(getApplicationContext(), "Favorite Movies", Toast.LENGTH_SHORT).show();
                 loadFavoriteMoviesFromDb();
                 return true;
             case R.id.action_about:

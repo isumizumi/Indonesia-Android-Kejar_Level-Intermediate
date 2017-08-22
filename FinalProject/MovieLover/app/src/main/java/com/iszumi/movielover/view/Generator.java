@@ -5,23 +5,16 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.iszumi.movielover.R;
-import com.iszumi.movielover.activity.DetailActivity;
-import com.iszumi.movielover.activity.MainActivity;
 import com.iszumi.movielover.network.UrlComposer;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
-import com.iszumi.movielover.network.model.Video;
 import com.iszumi.movielover.util.Util;
-
-import static com.iszumi.movielover.util.Util.playYoutubeVideo;
 
 /**
  * Thanks to my sensei: @hendrawd

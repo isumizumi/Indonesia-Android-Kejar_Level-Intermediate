@@ -1,6 +1,5 @@
 package com.iszumi.movielover.util;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Context;
@@ -17,7 +16,6 @@ import android.view.inputmethod.InputMethodManager;
 import com.iszumi.movielover.BuildConfig;
 
 import com.google.android.youtube.player.YouTubeStandalonePlayer;
-import com.google.gson.Gson;
 
 /**
  * Thanks to my sensei: @hendrawd

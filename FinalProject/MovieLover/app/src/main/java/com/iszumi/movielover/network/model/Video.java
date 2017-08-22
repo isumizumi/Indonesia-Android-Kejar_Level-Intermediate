@@ -1,8 +1,9 @@
 package com.iszumi.movielover.network.model;
 
-import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+//import android.content.Context;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
