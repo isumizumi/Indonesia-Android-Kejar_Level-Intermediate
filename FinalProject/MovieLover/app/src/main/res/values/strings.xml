@@ -14,8 +14,8 @@
     <string name="original_title">Original title</string>
     <string name="rating">Rating</string>
     <string name="release_date">Release date</string>
+    <string name="trailereview">Related Videos and Review</string>
 
-    <string name="trailerreview">Review and Related Videos</string>
     <string name="share_first_trailer">[Movie Lover] Watch this awesome trailer: %s</string>
     <string name="no_trailer">No Trailer</string>
 </resources>

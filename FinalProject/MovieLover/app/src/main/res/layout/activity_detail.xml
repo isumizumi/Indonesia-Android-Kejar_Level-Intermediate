@@ -216,7 +216,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_vertical|left"
-                android:text="@string/trailerreview"
+                android:text="@string/trailereview"
                 android:textColor="@color/text"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -230,19 +230,21 @@
             android:background="@android:color/white"/>
 
         <LinearLayout
+            android:id="@+id/ll_video_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:textColor="@color/text"
+            android:padding="@dimen/detail_content_padding"/>
+
+        <LinearLayout
             android:id="@+id/ll_review_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:textColor="@color/text"
             android:padding="@dimen/detail_content_padding"/>
-
-        <LinearLayout
-            android:id="@+id/ll_video_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="vertical"/>
 
     </LinearLayout>
 
